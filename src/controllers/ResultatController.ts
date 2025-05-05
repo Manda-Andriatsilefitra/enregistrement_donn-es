@@ -1,3 +1,4 @@
+import { Resultat } from "../entity/Resultat";
 import { ResultatService } from "../services/ResultatService";
 
 export class ResultatController {
@@ -9,7 +10,11 @@ export class ResultatController {
     }
 
     // Methode pour appeler la méthode lireData dans resultatService
-    public async lireData(fichierPath: string) {
-        return this.resultatService.lireData(fichierPath);
+    public async importData(fichier: string) {
+        return this.resultatService.lireImportDonnee(fichier);
+    }
+
+    public async lireDonnee(): Promise<Resultat[]> {
+        return this.resultatService.getAllResultats();
     }
 }

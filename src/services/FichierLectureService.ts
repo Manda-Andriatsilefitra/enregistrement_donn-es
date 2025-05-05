@@ -5,14 +5,14 @@ export class FichierLectureService  {
 
     // Parser un fichier contenant les données.
     /**
-    * @param filePath chemin vers le fichier
+    * @param fichier chemin vers le fichier
     * @return  Liste d'objet Resultat correspondant aux données
     */
 
     // Méthode pour parser un fichier
-    public parseFichier(fichierPath: string): Resultat[] {
+    public parseFichier(fichier: string): Resultat[] {
         // LEcture du fichier avec l'encodage utf-8 => Pour accepter les caractères spéciaux
-        const contenus = fs.readFileSync(fichierPath, "utf-8");
+        const contenus = fs.readFileSync(fichier, "utf-8");
 
         //Découpage par lignes avec split et suppréssion des lignes vides avec filter, trim 
         const lignes = contenus.split('\n').filter(ligne => ligne.trim() !== '');
@@ -71,6 +71,7 @@ export class FichierLectureService  {
         return resultats;
         
     }
+
 }
 
 // Importer la classe vers ResultatService pour parser le fichier
